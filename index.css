@@ -1,0 +1,138 @@
+body {
+  background-color: #FFFFFF; /* Цвет фона страници */
+/*  height: "100%" */
+}
+div.header {
+  border-top: 0px solid red; /* Линия сверху текста */
+  border-bottom: 0px solid red; /* Линия снизу текста */
+  border-right: 0px solid red; /* Линия справа текста */
+  border-left: 0px solid red; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+}
+
+div.main {
+  border-top: 0px solid red; /* Линия сверху текста */
+  border-bottom: 0px solid red; /* Линия снизу текста */
+  border-right: 0px solid red; /* Линия справа текста */
+  border-left: 0px solid red; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+}
+
+div.footer {
+  border-top: 1px solid red; /* Линия сверху текста */
+  border-bottom: 1px solid red; /* Линия снизу текста */
+  border-right: 1px solid red; /* Линия справа текста */
+  border-left: 1px solid red; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+}
+
+div.add_record {
+  border-top: 0px solid blue; /* Линия сверху текста */
+  border-bottom: 0px solid blue; /* Линия снизу текста */
+  border-right: 0px solid blue; /* Линия справа текста */
+  border-left: 0px solid blue; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+  background-color: #EEFFEE; /* Цвет фона строки */
+}
+
+div.filter {
+  border-top: 0px solid green; /* Линия сверху текста */
+  border-bottom: 0px solid green; /* Линия снизу текста */
+  border-right: 0px solid green; /* Линия справа текста */
+  border-left: 0px solid green; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+  background-color: #EEFFEE; /* Цвет фона строки */
+}
+
+div.records{
+  border-top: 0px solid green; /* Линия сверху текста */
+  border-bottom: 0px solid green; /* Линия снизу текста */
+  border-right: 0px solid green; /* Линия справа текста */
+  border-left: 0px solid green; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+  overflow: auto;
+  height: auto; 
+}
+
+div.line {
+  border-top: 1px solid #DDDD00; /* Линия сверху текста */
+  border-left: 1px solid #DDDD00; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 20px;  /* Отступы вокруг текста */
+  margin-bottom: 20px;  /* Отступы вокруг текста */
+  margin-left: 0px;  /* Отступы вокруг текста */
+  margin-right: 0px;  /* Отступы вокруг текста */
+  background-color: #F8F8FF; /* Цвет фона строки */
+}
+
+div.line:hover { 
+  border-top: 1px solid black; /* Линия сверху текста */
+  border-left: 1px solid black; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 20px;  /* Отступы вокруг текста */
+  margin-bottom: 20px;  /* Отступы вокруг текста */
+  margin-left: 0px;  /* Отступы вокруг текста */
+  margin-right: 0px;  /* Отступы вокруг текста */
+  background-color: #E0E0E0; /* Цвет фона строки */
+}
+
+div.line:after { 
+  border-top: 1px solid black; /* Линия сверху текста */
+  border-left: 1px solid black; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 5px;  /* Отступы вокруг текста */
+  background-color: #EE00EE; /* Цвет фона строки */
+}
+
+form { 
+  border-top: 0px solid black; /* Линия сверху текста */
+  border-left: 0px solid black; /* Линия слева текста */
+  padding: 0px; /* Поля вокруг текста */
+  margin: 0px;  /* Отступы вокруг текста */
+}
+
+h3 {
+  border-top: 1px solid #DDDD00; /* Линия сверху текста */
+  border-left: 1px solid #DDDD00; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 0px;  /* Отступы вокруг текста */
+  margin-bottom: 0px;  /* Отступы вокруг текста */
+  margin-left: 0px;  /* Отступы вокруг текста */
+  margin-right: 0px;  /* Отступы вокруг текста */
+}
+span.name {
+  border-top: 0px solid #DDDD00; /* Линия сверху текста */
+  border-left: 0px solid #DDDD00; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 5px;  /* Отступы вокруг текста */
+  margin-bottom: 5px;  /* Отступы вокруг текста */
+  margin-left: 5px;  /* Отступы вокруг текста */
+  margin-right: 5px;  /* Отступы вокруг текста */
+}
+
+span.mail {
+  border-top: 0px solid #DDDD00; /* Линия сверху текста */
+  border-left: 0px solid #DDDD00; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 5px;  /* Отступы вокруг текста */
+  margin-bottom: 5px;  /* Отступы вокруг текста */
+  margin-left: 5px;  /* Отступы вокруг текста */
+  margin-right: 5px;  /* Отступы вокруг текста */
+}
+
+span.age {
+  border-top: 0px solid #DDDD00; /* Линия сверху текста */
+  border-left: 0px solid #DDDD00; /* Линия слева текста */
+  padding: 5px; /* Поля вокруг текста */
+  margin-top: 5px;  /* Отступы вокруг текста */
+  margin-bottom: 5px;  /* Отступы вокруг текста */
+  margin-left: 5px;  /* Отступы вокруг текста */
+  margin-right: 5px;  /* Отступы вокруг текста */
+}
+

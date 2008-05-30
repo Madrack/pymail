@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <script type="text/javascript">
+    <!--
+
+    function stateChenge( request, callBackFunc ) { // request - локальная переменная, callBackFunc - функчия обратного вызова для конкретного запроса
+//      alert(request.getAllResponseHeaders());
+      try {
+        if (request.readyState == 4){
+          if (request.status == 200){
+            if (request.getResponseHeader("Content-type").search("xml") >= 0) {
+              callBackFunc(request);
+            } else {
+              alert("Error: not XML");
+            }
+          } else if (request.status == 404){
+            alert("Request URL does not exist");
+          } else if (request.status == 403) {
+            alert("Access denied.");
+          } else {
+            alert("Error: status code is " + request.status);
+          }
+        }
+      } catch(e) {
+        alert('Произошло исключение: ' + e.description);
+      }
+    }
+
+    function initRequest() {
+      var request = false; // локальная переменная
+      try {
+        request = new XMLHttpRequest();
+      } catch (failed) {
+        request = false;
+      }
+      if (!request)
+        alert("Error initializing XMLHttpRequest!");
+      return request;
+    }
+
+    function myRequest(url, callBackFunc) {
+      var request = initRequest();
+      request.open("GET", url, true);
+      request.onreadystatechange = function() { stateChenge(request, callBackFunc); };
+      request.send(null);
+    }
+
+    function initOnLoad() {
+      tryToAdd();
+    }
+
+    function tryToAdd() {
+      var url = "/myAjax/users.php?act=get&uID=all";
+      myRequest(url, addUsers);
+    }
+
+    function addUsers(request) {
+      XMLDoc = request.responseXML;
+      var users = XMLDoc.getElementsByTagName("user");
+      for (var x=0; x < users.length; x++) {
+        parsUser(users[x]);
+      }
+    }
+
+    function parsUser(user) {
+      addUserToList(user.getElementsByTagName("name")[0].textContent,
+              user.getElementsByTagName("mail")[0].textContent,
+              user.getElementsByTagName("birth")[0].textContent);
+    }
+
+    function formTryToAdd() {
+      var url = "/myAjax/users.php?act=add"+
+                  "&uName="+document.getElementById("form_add_name").value+
+                  "&uMail="+document.getElementById("form_add_mail").value+
+                  "&uBirth="+document.getElementById("form_add_birth").value+
+                  "&uSex="+document.getElementById("form_add_sex").value;
+      myRequest(url, formAdd);
+    }
+
+    function formAdd(request) {
+      alert(request.responseText);
+//      addUserToList(document.getElementById("form_add_name").value,
+//              document.getElementById("form_add_mail").value,
+//              document.getElementById("form_add_birth").value,
+//              document.getElementById("form_add_sex").value);
+    }
+
+    function addUserToList(name, mail, birth) { // добавляет пользователя в конец списка
+      addEl = document.getElementById("recordsDiv");
+      addEl.innerHTML += '<div class="line" id="User"><span id="uName">'+name+'</span> <span id="uMail">'+mail+'</span> <span id="birth">'+birth+'</span></div>';
+    }
+
+    function filterData() {
+      filterLines = document.getElementById("recordsDiv");
+      users = filterLines.getElementsByTagName("div");
+      for (var x=0; x < users.length; x++) {
+        if (users[x].getElementsByTagName("span")[0].getAttribute("id") == "uName" &
+	    users[x].getElementsByTagName("span")[0].innerHTML.indexOf(document.forms.namedItem("formFilter").filter_name.value) >=0 ){
+	  users[x].style.display = "";
+        } else {
+	  users[x].style.display = "none";
+	}
+      }
+    }
+    -->
+  </script>
+  <link rel="stylesheet" href="index.css" type="text/css">
+  </head>
+  <body onload="initOnLoad()">
+    <div id="header" class="header">
+      <h1><center>База данных imail адресов и агент автоматической рассылки почты</center></h1>
+    </div>
+    <div class="main">
+      <div class="add_record" id="addForm">
+        <h3>Добавить пользователя</h3>
+        <form name="addUser" id="addUser">
+          Ф.И.О.
+          <input id="form_add_name" name="add_name" type="text" value="Введите Ф.И.О.">
+          &nbsp;
+          imail адрес
+          <input id="form_add_mail" name="add_mail" type="text" value="Введите почтовый адрес">
+          &nbsp;
+          дата рождения
+          <input id="form_add_birth" name="add_birth" type="text" value="Введите дату рождения">
+          &nbsp;
+          пол
+          <select id="form_add_sex" name="add_sex">
+            <option>М</option>
+            <option>Ж</option>
+          </select>
+          &nbsp;
+          <a href="#" onClick="formTryToAdd()">Добавить</a> <!-- индекс сохранения нужно генерировать -->
+        </form>
+      </div>
+      <div class="filter">
+        <h3>Филтр данных</h3>
+        <form name="formFilter" id="formFilter">
+          Ф.И.О.
+          <input id="filter_name" name="filter_name" onChange="filterData()" type="text" value="">
+          &nbsp;
+          imail адрес
+          <input id="filter_mail" name="filter_mail" onChange="filterData()" type="text" value="">
+          &nbsp;
+          дата рождения
+          <input id="filter_birth" name="filter_birth" onChange="filterData()" type="text" value="">
+          &nbsp;
+          <a href="#" onClick="filterData()">Фильтр</a>
+        </form>
+
+      </div>
+      <div id="recordsDiv" class="records">
+      </div>
+    </div>
+    <div class="footer">
+      Ну типа копилефты и т.д.
+    </div>
+  </body>
+</html>
+

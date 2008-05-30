@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<script type="text/javascript">
+	<!--
+        i = 0;
+	function test(){
+          i = i + 1;
+          myDiv = document.getElementById("myDivEl");
+	  alert(myDiv.id);
+	  myDiv.innerHTML += '<tr id='+i+'><td>My table #'+i
+          +'</td><td><a href="#" onClick="test()">Click</a></td>\n'
+          +'<td><a href="#" onClick="edit('+i+')">Edit</a></td>\n';
+	}
+        function edit(edit_id){
+          alert("test alert");
+          curEl = document.getElementById(edit_id);
+          curEl.innerHTML = '<td><input type="text" value="test"/></td>\n'+
+                            '<td><a href="#" onClick="test()">Save</a></td>\n';
+        }
+	-->
+	</script>
+	</head>
+  <body>
+    <table>
+      <tbody id="myDivEl">
+        <tr>
+          <td><div>My table </div></td>
+          <td><a href="#" onClick="test()">Click</a></td>
+        </tr>
+      </tbody>
+    </table>	
+  </body>
+</html>
+

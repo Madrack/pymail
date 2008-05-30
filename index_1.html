@@ -1,0 +1,59 @@
+<html>
+<head>
+  <script type="text/javascript">
+  <!--
+    i = 0;
+    function test(){
+      i = i + 1;
+      myDiv = document.getElementById("myDivEl");
+      alert(myDiv.id);
+      myDiv.innerHTML += '<tr id='+i+'><td>My table #'+i
+      +'</td><td><a href="#" onClick="test()">Click</a></td>\n'
+      +'<td><a href="#" onClick="edit('+i+')">Edit</a></td>\n';
+    }
+    function edit(editId){
+      curEl = document.getElementById(editId);
+      curEl.innerHTML = '<td id="'+editId+'_name"><input name="'+editId+'_name" type="text" value="'+document.getElementById(editId+"_name").innerHTML+'" /></td>\n'+
+                        '<td id="'+editId+'_mail"><input name="'+editId+'_mail" type="text" value="'+document.getElementById(editId+"_mail").innerHTML+'" /></td>\n'+
+                        '<td id="'+editId+'_birth"><input name="'+editId+'_birth" type="text" value="'+document.getElementById(editId+"_birth").innerHTML+'" /></td>\n'+
+                        '<td><a href="#" onClick="save( '+editId+' )">Save</a></td>\n';
+    }
+    function save(editId){
+      alert("test alert");
+      curEl = document.getElementById(editId);
+//      curEl.innerHTML = '<td>text</td>\n';
+      curEl.innerHTML = '<td id="'+editId+'_name">'+document.getElementById(editId+"_name").innerHTML+'</td>\n'+
+                        '<td><a href="#" onClick="edit( '+editId+' )">Edit</a></td>\n';
+//                        '<td><input type="text" value="'+document.getElementById(editId+"_mail").innerHTML+'" /></td>\n'+
+//                        '<td><input type="text" value="'+document.getElementById(editId+"_birth").innerHTML+'" /></td>\n'+
+//                        '<td><a href="#" onClick="save()">Save</a></td>\n';
+    }
+  -->
+  </script>
+  </head>
+  <body>
+    <table border=1>
+      <tbody id="myDivEl">
+        <tr id=1>
+          <td id=1_name>Иванов Иван Иванович</td>
+          <td id=1_mail>Ivanov@pisem.net</td>
+          <td id=1_birth>12.04.1970</td>
+          <td><a href="#" onClick="edit(1)">Edit</a></td>
+        </tr>
+        <tr id=2>
+          <td id=2_name>Петров Петр Петрович</td>
+          <td id=2_mail>Petrov@pisem.net</td>
+          <td id=2_birth>23.12.1960</td>
+          <td><a href="#" onClick="edit(2)">Edit</a></td>
+        </tr>
+        <tr id=3>
+          <td id=3_name>Сидоров Сидор Сидорович</td>
+          <td id=3_mail>Sidorov@pisem.net</td>
+          <td id=3_birth>13.02.1980</td>
+          <td><a href="#" onClick="edit(3)">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>	
+  </body>
+</html>
+
